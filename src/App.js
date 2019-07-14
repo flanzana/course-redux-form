@@ -1,23 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
+import RegisterForm from './components/RegisterForm';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class RegisterFormContainer extends Component {
+  submit = values => {
+    window.alert(JSON.stringify(values, null, 4))
+  };
+
+  render() {
+    return <RegisterForm onSubmit={this.submit} />
+  }
 }
 
-export default App;
+export default RegisterFormContainer;
