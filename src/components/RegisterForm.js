@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 
 import './RegisterForm.css';
 import { customInput, customSelect } from "./fields";
-import { required, minLength, maxLength, matchesPassword } from "../validation";
+import { required, minLength, maxLength, matchesPassword, asyncValidate } from "../validation";
 
 class RegisterForm extends Component {
   render() {
@@ -65,6 +65,8 @@ class RegisterForm extends Component {
 
 RegisterForm = reduxForm({
   form: "register",
+  asyncValidate,
+  asyncBlurFields: ['username'] // to specify the fields which will be asynchronously validated
 })(RegisterForm);
 
 export default RegisterForm
