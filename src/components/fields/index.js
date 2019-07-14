@@ -2,11 +2,16 @@ import React from 'react';
 import ReactJson from 'react-json-view'; // displays all props of the component
 
 export const customInput = props => {
+  const { label, type, input, meta } = props;
+
   return (
     <div>
-      <label>{props.label}</label>
-      <input type={props.type} {...props.input} />
-      <ReactJson src={props.meta} />
+      <label>{label}</label>
+      <input type={type} {...input} />
+      {(meta.error && meta.touched) && (
+        <div style={{ color: 'red'}}>{meta.error}</div>
+      )}
+      {/*<ReactJson src={meta} />*/}
     </div>
   )
 };
@@ -19,7 +24,7 @@ export const customSelect = props => {
         <option value="tabs">Tabs</option>
         <option value="spaces">Spaces</option>
       </select>
-      <ReactJson src={props.meta} />
+      {/*<ReactJson src={props.meta} />*/}
     </div>
   )
 };
