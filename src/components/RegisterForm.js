@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import capitalize from 'capitalize';
 
 import './RegisterForm.css';
 import { customInput, customSelect } from "./fields";
@@ -17,6 +18,7 @@ class RegisterForm extends Component {
           type="text"
           label="First Name"
           validate={[required]}
+          normalize={capitalize}
         />
         <Field
           name="surname"
@@ -24,6 +26,7 @@ class RegisterForm extends Component {
           type="text"
           label="Surname"
           validate={[required]}
+          normalize={capitalize}
         />
         <Field
           name="username"
